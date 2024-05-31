@@ -22,7 +22,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.inventory.ui.item.ItemDetails
+import com.example.inventory.ui.item.ItemEntryBody
+import com.example.inventory.ui.item.ItemUiState
 import com.example.inventory.ui.theme.InventoryTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,5 +45,16 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+}
+@Preview(showBackground = true)
+@Composable
+private fun ItemEntryScreenPreview() {
+    InventoryTheme {
+        ItemEntryBody(itemUiState = ItemUiState(
+            ItemDetails(
+                name = "Item name", price = "10.00", quantity = "5"
+            )
+        ), onItemValueChange = {}, onSaveClick = {})
     }
 }
